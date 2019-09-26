@@ -8,6 +8,7 @@ public class StaticInnerClassSingleton {
         private final static StaticInnerClassSingleton scsl = new StaticInnerClassSingleton();
     }
 
+
     public static StaticInnerClassSingleton getStaticInnerClassSingleton(){
         return InnerClaa.scsl;
     }
