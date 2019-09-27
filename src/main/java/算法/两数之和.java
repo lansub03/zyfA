@@ -27,7 +27,7 @@ public class 两数之和 {
 class Solution {
     public int[] twoSum(int[] nums, int target) {
 
-        int[] lengNum = new int[2];
+        int[] lengNum = new int[2];//存储下标的数组
         int lengSize = 0;//存放数组的下标
 
         for (int i =0 ; i < nums.length ; i++){
