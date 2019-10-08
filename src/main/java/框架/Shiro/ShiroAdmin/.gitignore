@@ -13,6 +13,8 @@ target/
 .mvn
 mvnw.cmd
 mvnw
+maven-wrapper.jar
+MavenWrapperDownloader.java
 .idea
 *.iws
 *.iml
