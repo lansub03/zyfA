@@ -9,14 +9,13 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
-
 /**
- * 基于Shiro实现自定义Realm
+ * 此类基于Shiro实现自定义Realm类
  * shiro的常用过滤器
- * authc：所以已登录用户可访问 登录才可以访问
- * roles：有指定角色的用户可访问，通过[]指定具体角色，这里的角色名称于数据库中配置一致
- * perms:有指定权限的用户可以访问，通过[]指定具体权限，这里的权限名称与数据库中配置一致
- * anon：所有用户可访问，通常作为指定页面的静态资源时使用
+ * authc:所有已经登录用户可以访问，登录才可以访问
+ * roles:有指定角色的用户可以访问，通过[]指定具体角色，这里的角色名称和数据库中配置一致
+ * perms:有指定权限的用户可以访问，通过[]自定具体权限，这里的权限名称与数据库中配置一致
+ * anon:所有用户都可以访问，相当于是放行的资源，通常作为指定页面的静态资源时候进行使用
  */
 @Component
 public class ShiroRealm extends AuthorizingRealm {
