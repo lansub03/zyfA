@@ -27,7 +27,7 @@ public class ShiroConfig {
     public ShiroFilterFactoryBean createSFFB(SecurityManager securityManager){
         ShiroFilterFactoryBean shiroBean = new ShiroFilterFactoryBean();
         shiroBean.setSecurityManager(securityManager);
-        //设置三个url
+        //设置三个urlssss
         shiroBean.setLoginUrl("/admin/login");//登录接口
         shiroBean.setSuccessUrl("/admin/index");//登录成功
         shiroBean.setUnauthorizedUrl("/admin/error");//登录失败
