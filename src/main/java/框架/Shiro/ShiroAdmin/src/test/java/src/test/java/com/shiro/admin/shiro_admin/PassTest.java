@@ -4,7 +4,7 @@ import com.shiro.admin.shiro_admin.utils.ShiroPassUtil;
 import org.junit.Test;
 
 public class PassTest {
-    private static String pass = "123456789";
+    private static String pass = "admin";
 
     @Test
     public void passTest(){
