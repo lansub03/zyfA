@@ -21,6 +21,7 @@
     <!--指定mapper文件,这里可以指定多个mapper映射文件-->
     <mappers>
         <mapper resource="User.xml"></mapper>
+        <mapper resource="UserMapper.xml"></mapper>
     </mappers>
 
 </configuration>

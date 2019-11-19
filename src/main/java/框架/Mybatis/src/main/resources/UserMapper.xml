@@ -1,1 +1,14 @@
-7
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="dao.UserMapper">
+    <!--根据id查询User
+        id:唯一id
+        parameterType:传入的参数类型
+        resultType：查询以后返回的类型
+    -->
+    <select id="selectByid2" parameterType="java.lang.Integer" resultType="domain.User">
+        SELECT * from user where id = #{id}
+    </select>
+</mapper>
