@@ -27,5 +27,7 @@ public class client {
         System.out.println("info:"+user);
      }
 
+     //使用接口的方式调用myabtis
+
 
 }
