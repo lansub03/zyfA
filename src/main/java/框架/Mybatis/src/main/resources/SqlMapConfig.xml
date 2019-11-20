@@ -3,6 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <!--给对象起别名-->
+    <typeAliases>
+            <typeAlias type="domain.User" alias="user"></typeAlias>
+    </typeAliases>
+
+
     <!--配置myabtis的数据源-->
     <environments default="devlopment">
         <environment id="devlopment">
