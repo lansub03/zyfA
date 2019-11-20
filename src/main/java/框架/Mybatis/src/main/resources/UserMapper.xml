@@ -11,4 +11,24 @@
     <select id="selectByid2" parameterType="java.lang.Integer" resultType="user">
         SELECT * from user where id = #{id}
     </select>
+
+    <select id="selectAllUser" resultType="user">
+        select * from user
+    </select>
+
+    <insert id="insertByUser" parameterType="domain.User">
+        INSERT into user(name,sex,address) VALUES(#{name},#{sex},#{address})
+    </insert>
+
+    <update id="editByUserId" parameterType="domain.User">
+        UPDATE user
+        <set>
+            <if test ='null != name'>name = #{name},</if>
+            <if test ='null != address'>address = #{address},</if>
+            <if test ='null != birthday'>birthday = #{birthday},</if>
+            <if test ='null != sex'>sex = #{sex}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
 </mapper>

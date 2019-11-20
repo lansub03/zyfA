@@ -6,9 +6,11 @@
     <!--根据id查询User
         id:唯一id
         parameterType:传入的参数类型
-        resultType：查询以后返回的类型
+        resultType：查询以后返回的类型，这里使用的是别名，在mybatis的配置文件中有配置
     -->
     <select id="selectByid" parameterType="java.lang.Integer" resultType="user">
        SELECT * from user where id = #{id}
     </select>
+    
+
 </mapper>
