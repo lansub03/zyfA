@@ -3,6 +3,7 @@ package dao;
 import domain.User;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserMapper {
 //    根据id查询实体
@@ -14,5 +15,8 @@ Integer insertByUser(User user);
 
 //编辑User
     void editByUserId(User user);
+
+    //Map传参
+    List<User> selectByMap(Map<String,Object> map);
 
 }

@@ -3,12 +3,26 @@
 
 
 <mapper namespace="dao.UserMapper">
+
+    <!-- 增加myabtis的映射
+    id  对应的就是我们数据库的主键，如果有多个，我们这里需要配置相同的id标签
+    column   数据库的字段名称
+    property 对应的是实体的属性名
+    -->
+    <resultMap id="BaseResultMap" type="domain.User" >
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="address" property="address" />
+        <result column="birthday" property="birthday" />
+        <result column="sex" property="sex" />
+    </resultMap>
+
     <!--根据id查询User
         id:唯一id
         parameterType:传入的参数类型
         resultType：查询以后返回的类型
     -->
-    <select id="selectByid2" parameterType="java.lang.Integer" resultType="user">
+    <select id="selectByid2" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         SELECT * from user where id = #{id}
     </select>
 
@@ -28,7 +42,11 @@
             <if test ='null != birthday'>birthday = #{birthday},</if>
             <if test ='null != sex'>sex = #{sex}</if>
         </set>
-        WHERE id = #{id}
+            WHERE id = #{id}
     </update>
 
+    <!-- 分页：map传参 -->
+    <select id="selectByMap" parameterType="map" resultMap="BaseResultMap">
+         SELECT * FROM user LIMIT #{offset}, #{pagesize}
+     </select>
 </mapper>

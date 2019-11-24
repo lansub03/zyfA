@@ -9,6 +9,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class client {
@@ -109,4 +110,25 @@ public class client {
         sqlSession.commit();//提交数据库事务
     }
 
+    //Map传参，无注解
+    //注意：map的key要和sql中的占位符保持名字一致
+    @Test
+    public void selectOnMap() throws IOException {
+        //1、加载myabtis配置文件 读取myabtis配置文件
+        InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
+        //2、使用sqlSessionFactoryBuild来创建一个sqlSessionFactory
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        //3、获取到sql session  进行调取api
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        //4、根据反射获取接口的对象
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("offset",0);//从第几条开始
+        map.put("pagesize",5);//查看几条
+        List<User> users = userMapper.selectByMap(map);
+
+        for (User s : users){
+            System.out.println(s);
+        }
+    }
 }
