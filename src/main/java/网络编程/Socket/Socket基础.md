@@ -141,3 +141,46 @@ ServerSocket 类有四个构造方法：
 | 2        | **public Socket accept() throws IOException** 侦听并接受到此套接字的连接。 |
 | 3        | **public void setSoTimeout(int timeout)**  通过指定超时值启用/禁用 SO_TIMEOUT，以毫秒为单位。 |
 | 4        | **public void bind(SocketAddress host, int backlog)** 将 ServerSocket 绑定到特定地址（IP 地址和端口号）。 |
+
+# Socket 类的方法
+
+java.net.Socket 类代表客户端和服务器都用来互相沟通的套接字。客户端要获取一个 Socket 对象通过实例化 ，而 服务器获得一个 Socket 对象则通过 accept() 方法的返回值。
+
+Socket 类有五个构造方法.
+
+| **序号** | **方法描述**                                                 |
+| -------- | ------------------------------------------------------------ |
+| 1        | **public Socket(String host, int port) throws UnknownHostException, IOException.** 创建一个流套接字并将其连接到指定主机上的指定端口号。 |
+| 2        | **public Socket(InetAddress host, int port) throws IOException** 创建一个流套接字并将其连接到指定 IP 地址的指定端口号。 |
+| 3        | **public Socket(String host, int port, InetAddress localAddress, int localPort) throws IOException.** 创建一个套接字并将其连接到指定远程主机上的指定远程端口。 |
+| 4        | **public Socket(InetAddress host, int port, InetAddress localAddress, int localPort) throws IOException.** 创建一个套接字并将其连接到指定远程地址上的指定远程端口。 |
+| 5        | **public Socket()** 通过系统默认类型的 SocketImpl 创建未连接套接字 |
+
+当 Socket 构造方法返回，并没有简单的实例化了一个 Socket 对象，它实际上会尝试连接到指定的服务器和端口。
+
+下面列出了一些感兴趣的方法，注意客户端和服务器端都有一个 Socket 对象，所以无论客户端还是服务端都能够调用这些方法。
+
+| **序号** | **方法描述**                                                 |
+| -------- | ------------------------------------------------------------ |
+| 1        | **public void connect(SocketAddress host, int timeout) throws IOException** 将此套接字连接到服务器，并指定一个超时值。 |
+| 2        | **public InetAddress getInetAddress()**  返回套接字连接的地址。 |
+| 3        | **public int getPort()** 返回此套接字连接到的远程端口。      |
+| 4        | **public int getLocalPort()** 返回此套接字绑定到的本地端口。 |
+| 5        | **public SocketAddress getRemoteSocketAddress()** 返回此套接字连接的端点的地址，如果未连接则返回 null。 |
+| 6        | **public InputStream getInputStream() throws IOException** 返回此套接字的输入流。 |
+| 7        | **public OutputStream getOutputStream() throws IOException** 返回此套接字的输出流。 |
+| 8        | **public void close() throws IOException** 关闭此套接字。    |
+
+# InetAddress 类的方法
+
+这个类表示互联网协议(IP)地址。下面列出了 Socket 编程时比较有用的方法：
+
+| **序号** | **方法描述**                                                 |
+| -------- | ------------------------------------------------------------ |
+| 1        | **static InetAddress getByAddress(byte[] addr)** 在给定原始 IP 地址的情况下，返回 InetAddress 对象。 |
+| 2        | **static InetAddress getByAddress(String host, byte[] addr)** 根据提供的主机名和 IP 地址创建 InetAddress。 |
+| 3        | **static InetAddress getByName(String host)** 在给定主机名的情况下确定主机的 IP 地址。 |
+| 4        | **String getHostAddress()**  返回 IP 地址字符串（以文本表现形式）。 |
+| 5        | **String getHostName()**   获取此 IP 地址的主机名。          |
+| 6        | **static InetAddress getLocalHost()** 返回本地主机。         |
+| 7        | **String toString()** 将此 IP 地址转换为 String。            |
