@@ -8,10 +8,11 @@ public class GreetingClient {
 
     public static void main(String[] args) {
          String serverNmae = "localhost";
-         int port = 8082;
+          Integer port = 8082;
 
         System.out.println("连接到主机：" + serverNmae + " ，端口号：" + port);
         try {
+
             Socket client = new Socket(serverNmae, port);//创建Socket对象
             System.out.println("远程主机地址"+client.getRemoteSocketAddress());//获取远程Socket信息
             OutputStream outToServer  = client.getOutputStream();//获取输出流
