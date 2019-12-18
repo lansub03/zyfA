@@ -5,7 +5,7 @@ import config.UtilsNumber;
 import java.util.Scanner;
 
 /***
- * 类说明：AIO模型的客户端
+ * 类说明：AIO客户端
  */
 public class AioClient {
     private static AioClientHandler clientHandler;
@@ -20,7 +20,7 @@ public class AioClient {
     //向服务器发送消息
     public static boolean sendMsg(String msg){
         if (msg.equals("q"))return false;
-        clientHandler.sendMsg(msg);
+        clientHandler.sendMsg(msg+System.getProperty("line.separator"));
         return true;
     }
 
